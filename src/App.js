@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Routes, Route, Outlet, Navigate } from "react-router-dom";
 import { showLoading, hideLoading } from "react-redux-loading-bar";
 
-import { fetchUsers } from "./store/reducers/users";
-import { fetchQuestions } from "./store/reducers/questions";
+import { fetchUsers } from "./store/reducers/usersSlice";
+import { fetchQuestions } from "./store/reducers/questionsSlice";
 import Home from "./pages";
 import Login from "./pages/Login";
 import NewQusetion from "./pages/NewQuestion";
@@ -20,12 +20,13 @@ function App() {
   const authedUser = useSelector((state) => state.authedUser);
   const status = useSelector((state) => state.questions.status);
 
+
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchUsers());
       dispatch(fetchQuestions());
     }
-    if (status === "Loading") {
+    if (status === "loading") {
       dispatch(showLoading());
     } else dispatch(hideLoading());
   }, [dispatch, status]);

@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Card, Form, Button, Divider } from "semantic-ui-react";
 import Container from "../layout/Container";
-import { addNewQuestion } from "../../store/reducers/questions";
+import { addNewQuestion } from "../../store/reducers/questionsSlice";
+import { updateUserQuestions } from "../../store/reducers/usersSlice";
 
 const CreateNewQuestion = () => {
   let navigate = useNavigate();
@@ -24,12 +25,13 @@ const CreateNewQuestion = () => {
 
   const handleNewQuestion = () => {
     if (optionA && optionB) {
-      dispatch(
-        addNewQuestion({
-          optionOneText: optionA,
-          optionTwoText: optionB,
-          author: authedUser,
-        })
+      const question = {
+        optionOneText: optionA,
+        optionTwoText: optionB,
+        author: authedUser,
+      };
+      dispatch(addNewQuestion(question)).then((res) =>
+        dispatch(updateUserQuestions(res.payload))
       );
       setOption(initOption);
       setError(false);

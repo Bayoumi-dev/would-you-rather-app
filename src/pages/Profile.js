@@ -11,7 +11,7 @@ const Profile = () => {
   questions = Object.values(questions).filter((q) =>
     user.questions.includes(q.id)
   );
-
+  
   return (
     <section className="questions">
       <Container>
