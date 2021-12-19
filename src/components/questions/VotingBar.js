@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { VotedQuestion } from "../../store/reducers/questions";
+import { VotedQuestion } from "../../store/reducers/questionsSlice";
 
 const VotingBar = ({ option, qid }) => {
   const dispatch = useDispatch();
@@ -47,7 +47,6 @@ const VotingBar = ({ option, qid }) => {
     };
   }, [isVoted, numVotesA, numVotesB, users]);
 
-  //
   const handleVote = ({ target }) => {
     const { name } = target;
     name === "a" ? (numVotesA += 1) : (numVotesB += 1);

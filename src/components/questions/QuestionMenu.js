@@ -1,6 +1,6 @@
 import { Menu } from "semantic-ui-react";
 import { useDispatch, useSelector } from "react-redux";
-import { activeQuestionssSelected } from "../../store/actoins/questions";
+import { activeQuestionssSelected } from "../../store/reducers/questionsSlice";
 
 const QuestionMenu = () => {
   const { activeQuestions } = useSelector((state) => state.questions);

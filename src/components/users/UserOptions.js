@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { setAuthedUser } from "../../store/actoins/authedUser";
-import { activeQuestionssSelected } from "../../store/actoins/questions";
+import { setAuthedUser } from "../../store/reducers/authedUserSlice";
+import { activeQuestionssSelected } from "../../store/reducers/questionsSlice";
 
 const UserOptions = ({ name }) => {
   const navigate = useNavigate();

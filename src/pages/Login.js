@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import logo from '../logo.svg'
 import { Dropdown } from "semantic-ui-react";
-import { setAuthedUser } from "../store/actoins/authedUser";
+import { setAuthedUser } from "../store/reducers/authedUserSlice";
 import { Card } from "semantic-ui-react";
 
 const Login = () => {
